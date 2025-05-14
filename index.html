@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Turing Machine Simulator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Turing Machine Simulator</h1>
+
+  <div id="config">
+    <label>Select Example:</label>
+    <select id="exampleSelect" onchange="loadExample(this.value)">
+      <option value="">-- Select --</option>
+      <option value="increment">Binary Incrementer</option>
+      <option value="onlyOnes">Only 1s</option>
+      <option value="evenZeros">Even Number of 0s</option>
+    </select>
+
+    <label>Input Tape:</label>
+    <input id="inputTape" type="text" placeholder="e.g., 10101">
+    
+    <label>Transition Functions:</label>
+    <textarea id="transitions" placeholder="e.g., q0 1 -> q1 X R"></textarea>
+
+    <label>Initial State:</label>
+    <input id="initialState" type="text" value="q0">
+
+    <label>Final States (comma-separated):</label>
+    <input id="finalStates" type="text" value="q_accept">
+
+    <div class="buttons">
+      <button onclick="startSimulation()">Start</button>
+      <button onclick="step()">Step</button>
+      <button onclick="autoRun()">Auto Run</button>
+    </div>
+  </div>
+
+  <div id="machine">
+    <div id="tape"></div>
+    <p>Current State: <span id="currentState"></span></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
